@@ -16,9 +16,16 @@
         self.backgroundColor = [UIColor whiteColor];
 //        self.text = @"asdfa";
 //        [self setNeedsDisplay];
+//         [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(repeats) userInfo:nil repeats:YES];
     }
     return self;
 }
+
+- (void)repeats {
+    self.text =[NSString stringWithFormat:@"%d",self.second--];
+    [self setNeedsDisplay];
+}
+
 
 - (void)drawRect:(CGRect)rect {
     //创建path

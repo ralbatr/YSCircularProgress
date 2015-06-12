@@ -16,5 +16,6 @@
 @property (nonatomic,strong) UIColor *fillColor;
 // 圆圈内显示的文字
 @property (nonatomic,copy)   NSString *text;
+@property (nonatomic,assign) NSInteger second;
 
 @end

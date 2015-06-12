@@ -10,7 +10,9 @@
 #import "YSCircularView.h"
 
 @interface ViewController ()
-
+{
+    NSInteger time;
+}
 @end
 
 @implementation ViewController
@@ -19,7 +21,18 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor redColor];
+    time = 0;
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(repeats) userInfo:nil repeats:YES];
+}
+
+- (void)repeats {
+    for (id subView in [self.view subviews]) {
+        if ([subView isKindOfClass:[YSCircularView class]]) {
+            [subView removeFromSuperview];
+        }
+    }
     YSCircularView *circularView = [[YSCircularView alloc] init];
+    circularView.text = [NSString stringWithFormat:@"%ld",time++];
     circularView.frame = CGRectMake(0, 40, 110, 210);
     [self.view addSubview:circularView];
 }
