@@ -12,6 +12,7 @@
 @interface ViewController ()
 {
     NSInteger time;
+    NSTimer *timer;
 }
 @end
 
@@ -22,7 +23,7 @@
     
     self.view.backgroundColor = [UIColor redColor];
     time = 0;
-    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(repeats) userInfo:nil repeats:YES];
+    timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(repeats) userInfo:nil repeats:YES];
 }
 
 - (void)repeats {
@@ -35,7 +36,10 @@
     circularView.second = (CGFloat)time++;
     circularView.total = 10.0;
     circularView.frame = CGRectMake(0, 40, 110, 210);
-    circularView.countUp = YES;
+    if (time-1 == circularView.total) {
+        [timer invalidate];
+    }
+//    circularView.countUp = YES;
     [self.view addSubview:circularView];
 }
 
