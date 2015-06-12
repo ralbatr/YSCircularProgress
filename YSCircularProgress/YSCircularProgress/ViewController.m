@@ -20,7 +20,7 @@
     
     self.view.backgroundColor = [UIColor redColor];
     YSCircularView *circularView = [[YSCircularView alloc] init];
-    circularView.frame = CGRectMake(0, 40, 210, 210);
+    circularView.frame = CGRectMake(0, 40, 110, 210);
     [self.view addSubview:circularView];
 }
 
