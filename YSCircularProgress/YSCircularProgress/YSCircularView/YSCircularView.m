@@ -40,9 +40,14 @@
     }
     
     CGPoint centerPoint = CGPointMake(CGRectGetWidth(self.frame)/2, CGRectGetWidth(self.frame)/2);
-    NSLog(@"%f  %f",M_PI*2*((CGFloat)self.second/(CGFloat)self.total),M_PI*2);
     // 添加圆到path
-    [path addArcWithCenter:centerPoint radius:(self.radius-path.lineWidth) startAngle:0.0 endAngle:M_PI*2*((CGFloat)self.second/(CGFloat)self.total) clockwise:YES];
+    if (self.countUp) {
+        [path addArcWithCenter:centerPoint radius:(self.radius-path.lineWidth) startAngle:0.0 endAngle:M_PI*2*(self.second/self.total) clockwise:YES];
+    } else {
+        [path addArcWithCenter:centerPoint radius:(self.radius-path.lineWidth) startAngle:0.0 endAngle:M_PI*2*(1-self.second/self.total) clockwise:YES];
+    }
+    
+    
     //设置颜色（颜色设置也可以放在最上面，只要在绘制前都可以）
     if (!self.strokeColor) {
         [[UIColor blueColor] setStroke];
@@ -54,22 +59,25 @@
     [path stroke];
     [path fill];
     
-    // 圆圈内的文字
-    if (!self.text) {
-        self.text = @"请设置text";
-    }
     UILabel *titleLabel = [[UILabel alloc] init];
     titleLabel.frame = CGRectMake(self.radius/2, self.radius/2, self.radius/1, self.radius/2);
     titleLabel.textAlignment = NSTextAlignmentCenter;
-    titleLabel.text = self.text;
     titleLabel.font = [UIFont systemFontOfSize:self.radius/5];
     [self addSubview:titleLabel];
+    
+    // 圆圈内的文字
+    if (self.text) {
+        self.text = @"请设置text";
+    } else {
+        titleLabel.text = self.countUp?@"已经计时":@"还剩";
+    }
+   
     
     UILabel *textLabel = [[UILabel alloc] init];
     textLabel.frame = CGRectMake(self.radius/2, self.radius, self.radius/1, self.radius/2);
     textLabel.textAlignment = NSTextAlignmentCenter;
     textLabel.font = [UIFont systemFontOfSize:self.radius/5];
-    textLabel.text = self.text;
+    textLabel.text = [NSString stringWithFormat:@"%ld",self.countUp?(NSInteger)self.second:(NSInteger)(self.total - self.second)];
     [self addSubview:textLabel];
 }
 

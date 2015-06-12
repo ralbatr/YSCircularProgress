@@ -32,10 +32,10 @@
         }
     }
     YSCircularView *circularView = [[YSCircularView alloc] init];
-    circularView.text = [NSString stringWithFormat:@"%ld",time++];
-    circularView.second = time;
-    circularView.total = 10;
+    circularView.second = (CGFloat)time++;
+    circularView.total = 10.0;
     circularView.frame = CGRectMake(0, 40, 110, 210);
+    circularView.countUp = YES;
     [self.view addSubview:circularView];
 }
 
