@@ -12,7 +12,9 @@
 
 @property (nonatomic,assign) CGFloat radius;
 @property (nonatomic,assign) CGFloat lineWidth;
-@property (nonatomic,copy) UIColor *strokeColor;
-@property (nonatomic,copy) UIColor *fillColor;
+@property (nonatomic,strong) UIColor *strokeColor;
+@property (nonatomic,strong) UIColor *fillColor;
+// 圆圈内显示的文字
+@property (nonatomic,copy)   NSString *text;
 
 @end
