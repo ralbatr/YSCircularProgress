@@ -17,5 +17,6 @@
 // 圆圈内显示的文字
 @property (nonatomic,copy)   NSString *text;
 @property (nonatomic,assign) NSInteger second;
+@property (nonatomic,assign) NSInteger total;
 
 @end
