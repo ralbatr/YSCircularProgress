@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "YSCircularView.h"
 
 @interface ViewController ()
 
@@ -16,12 +17,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    YSCircularView *circularView = [[YSCircularView alloc] init];
+    circularView.frame = CGRectMake(0, 40, 20, 20);
+    [self.view addSubview:circularView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 @end

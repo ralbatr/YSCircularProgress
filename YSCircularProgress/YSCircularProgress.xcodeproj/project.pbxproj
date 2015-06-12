@@ -14,6 +14,7 @@
 		DF0188A41B2ACC3C0016433E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF0188A31B2ACC3C0016433E /* Images.xcassets */; };
 		DF0188A71B2ACC3C0016433E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF0188A51B2ACC3C0016433E /* LaunchScreen.xib */; };
 		DF0188B31B2ACC3C0016433E /* YSCircularProgressTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DF0188B21B2ACC3C0016433E /* YSCircularProgressTests.m */; };
+		DF0188BF1B2ACC6E0016433E /* YSCircularView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF0188BE1B2ACC6E0016433E /* YSCircularView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		DF0188AC1B2ACC3C0016433E /* YSCircularProgressTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YSCircularProgressTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF0188B11B2ACC3C0016433E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF0188B21B2ACC3C0016433E /* YSCircularProgressTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSCircularProgressTests.m; sourceTree = "<group>"; };
+		DF0188BD1B2ACC6E0016433E /* YSCircularView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSCircularView.h; sourceTree = "<group>"; };
+		DF0188BE1B2ACC6E0016433E /* YSCircularView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSCircularView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,7 @@
 		DF0188951B2ACC3C0016433E /* YSCircularProgress */ = {
 			isa = PBXGroup;
 			children = (
+				DF0188BC1B2ACC6E0016433E /* YSCircularView */,
 				DF01889A1B2ACC3C0016433E /* AppDelegate.h */,
 				DF01889B1B2ACC3C0016433E /* AppDelegate.m */,
 				DF01889D1B2ACC3C0016433E /* ViewController.h */,
@@ -117,6 +121,15 @@
 				DF0188B11B2ACC3C0016433E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DF0188BC1B2ACC6E0016433E /* YSCircularView */ = {
+			isa = PBXGroup;
+			children = (
+				DF0188BD1B2ACC6E0016433E /* YSCircularView.h */,
+				DF0188BE1B2ACC6E0016433E /* YSCircularView.m */,
+			);
+			path = YSCircularView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +235,7 @@
 				DF01889F1B2ACC3C0016433E /* ViewController.m in Sources */,
 				DF01889C1B2ACC3C0016433E /* AppDelegate.m in Sources */,
 				DF0188991B2ACC3C0016433E /* main.m in Sources */,
+				DF0188BF1B2ACC6E0016433E /* YSCircularView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
