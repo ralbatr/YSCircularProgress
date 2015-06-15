@@ -28,6 +28,8 @@
 
 
 - (void)drawRect:(CGRect)rect {
+    
+    
     //创建path
     UIBezierPath *path = [UIBezierPath bezierPath];
     // 计算radius
@@ -40,13 +42,21 @@
     }
     
     CGPoint centerPoint = CGPointMake(CGRectGetWidth(self.frame)/2, CGRectGetWidth(self.frame)/2);
+    
+    // 画一个背景圆圈
+    UIBezierPath *backgroundCircularPath = [UIBezierPath bezierPath];
+    [backgroundCircularPath addArcWithCenter:centerPoint radius:(self.radius-path.lineWidth/2*3) startAngle:0.0 endAngle:2*M_PI clockwise:YES];
+    [[UIColor brownColor] setFill];
+    [backgroundCircularPath fill];
+    [backgroundCircularPath stroke];
+    
     // 添加圆到path
     if (self.countUp) {
         // 正向计时
-        [path addArcWithCenter:centerPoint radius:(self.radius-path.lineWidth) startAngle:1.5*M_PI endAngle:M_PI*2*(self.second/self.total)+1.5*M_PI clockwise:YES];
+        [path addArcWithCenter:centerPoint radius:(self.radius-path.lineWidth) startAngle:1.5*M_PI endAngle:M_PI*2*(self.second/self.total)+1.5*M_PI clockwise:NO];
     } else {
         // 倒计时
-        [path addArcWithCenter:centerPoint radius:(self.radius-path.lineWidth) startAngle:1.5*M_PI endAngle:M_PI*2*(1-self.second/self.total)+1.5*M_PI clockwise:YES];
+        [path addArcWithCenter:centerPoint radius:(self.radius-path.lineWidth) startAngle:1.5*M_PI endAngle:M_PI*2*(1-self.second/self.total)+1.5*M_PI clockwise:NO];
     }
     
     
@@ -59,7 +69,7 @@
     }
     // 描边和填充
     [path stroke];
-    [path fill];
+//    [path fill];
     
     UILabel *titleLabel = [[UILabel alloc] init];
     titleLabel.frame = CGRectMake(self.radius/2, self.radius/2, self.radius/1, self.radius/2);
@@ -74,7 +84,6 @@
         titleLabel.text = self.countUp?@"已经计时":@"还剩";
     }
    
-    
     UILabel *textLabel = [[UILabel alloc] init];
     textLabel.frame = CGRectMake(self.radius/2, self.radius, self.radius/1, self.radius/2);
     textLabel.textAlignment = NSTextAlignmentCenter;
