@@ -42,9 +42,11 @@
     CGPoint centerPoint = CGPointMake(CGRectGetWidth(self.frame)/2, CGRectGetWidth(self.frame)/2);
     // 添加圆到path
     if (self.countUp) {
-        [path addArcWithCenter:centerPoint radius:(self.radius-path.lineWidth) startAngle:1.5*M_PI endAngle:M_PI*2*(self.second/self.total) clockwise:YES];
+        // 正向计时
+        [path addArcWithCenter:centerPoint radius:(self.radius-path.lineWidth) startAngle:1.5*M_PI endAngle:M_PI*2*(self.second/self.total)+1.5*M_PI clockwise:YES];
     } else {
-        [path addArcWithCenter:centerPoint radius:(self.radius-path.lineWidth) startAngle:1.5*M_PI endAngle:M_PI*2*(1-self.second/self.total) clockwise:YES];
+        // 倒计时
+        [path addArcWithCenter:centerPoint radius:(self.radius-path.lineWidth) startAngle:1.5*M_PI endAngle:M_PI*2*(1-self.second/self.total)+1.5*M_PI clockwise:YES];
     }
     
     
