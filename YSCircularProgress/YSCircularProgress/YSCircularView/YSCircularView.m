@@ -13,6 +13,9 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
+        // 设置圆角
+        self.layer.cornerRadius = 2.0;
+        self.layer.masksToBounds = YES;
         self.backgroundColor = [UIColor whiteColor];
 //        self.text = @"asdfa";
 //        [self setNeedsDisplay];
@@ -39,6 +42,8 @@
      // 设置描边宽度（为了让描边看上去更清楚）
     if (self.lineWidth == 0) {
         [path setLineWidth:15.0];
+    } else {
+        [path setLineWidth:self.lineWidth];
     }
     
     CGPoint centerPoint = CGPointMake(CGRectGetWidth(self.frame)/2, CGRectGetWidth(self.frame)/2);
@@ -50,13 +55,13 @@
     [backgroundCircularPath fill];
     [backgroundCircularPath stroke];
     
-    // 添加圆到path
+    // 添加圆到path ， clockwise 顺时针 逆时针
     if (self.countUp) {
         // 正向计时
         [path addArcWithCenter:centerPoint radius:(self.radius-path.lineWidth) startAngle:1.5*M_PI endAngle:M_PI*2*(self.second/self.total)+1.5*M_PI clockwise:NO];
     } else {
         // 倒计时
-        [path addArcWithCenter:centerPoint radius:(self.radius-path.lineWidth) startAngle:1.5*M_PI endAngle:M_PI*2*(1-self.second/self.total)+1.5*M_PI clockwise:NO];
+        [path addArcWithCenter:centerPoint radius:(self.radius-path.lineWidth) startAngle:1.5*M_PI endAngle:M_PI*2*(1-self.second/self.total)+1.5*M_PI clockwise:YES];
     }
     
     
@@ -64,9 +69,9 @@
     if (!self.strokeColor) {
         [[UIColor blueColor] setStroke];
     }
-    if (!self.fillColor) {
-        [[UIColor brownColor] setFill];
-    }
+//    if (!self.fillColor) {
+//        [[UIColor brownColor] setFill];
+//    }
     // 描边和填充
     [path stroke];
 //    [path fill];
