@@ -38,4 +38,6 @@ typedef enum : NSUInteger {
 
 - (void)start;
 
+- (void)stop;
+
 @end
