@@ -12,11 +12,9 @@ typedef enum : NSUInteger {
     second,
     secondAndMinute
 } DisplayType;
-
-@protocol YSCircularViewDelegate
-
+// 继承NSObject，否则self.yscircular 找不到yscircularTimeRunOut 方法
+@protocol YSCircularViewDelegate <NSObject>
 - (void)yscircularTimeRunOut;
-
 @end
 
 @interface YSCircularView : UIView

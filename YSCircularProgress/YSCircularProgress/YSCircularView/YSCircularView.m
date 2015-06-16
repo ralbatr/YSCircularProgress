@@ -149,7 +149,7 @@ IB_DESIGNABLE
     }
     [self addSubview:textLabel];
     // 计时完成，调用代理
-    if (secondInt == 0 && _isStart == YES) {
+    if (secondInt == 0 && _isStart == YES &&[self.circularViewDelegate respondsToSelector:@selector(yscircularTimeRunOut)]) {
         [self stop];
         self.second = 0.0;
         [self.circularViewDelegate yscircularTimeRunOut];

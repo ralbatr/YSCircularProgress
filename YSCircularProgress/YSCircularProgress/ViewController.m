@@ -23,7 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor redColor];
+    self.view.backgroundColor = [UIColor brownColor];
+    
     circularView = [[YSCircularView alloc] init];
     circularView.lineWidth = 8;
     circularView.displayType = secondAndMinute;
@@ -35,7 +36,7 @@
 }
 
 - (IBAction)startAciton {
-    circularView.total = 5.0;
+    circularView.total = 25*60.0;
     [circularView start];
     time = 0;
 }
