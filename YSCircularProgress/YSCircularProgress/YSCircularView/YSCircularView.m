@@ -24,9 +24,12 @@
     return self;
 }
 
-- (void)repeats {
-    self.text =[NSString stringWithFormat:@"%d",self.second--];
-    [self setNeedsDisplay];
+-  (void)setSecond:(CGFloat)second
+{
+    if (_second != second) {
+        [self setNeedsDisplay];
+        _second = second;
+    }
 }
 
 

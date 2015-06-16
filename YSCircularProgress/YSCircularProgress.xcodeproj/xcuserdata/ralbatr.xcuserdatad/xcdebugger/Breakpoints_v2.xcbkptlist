@@ -10,28 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "YSCircularProgress/ViewController.m"
-            timestampString = "456024062.467727"
+            timestampString = "456118386.87308"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "-repeats"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "YSCircularProgress/YSCircularView/YSCircularView.m"
-            timestampString = "456027772.576526"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "-drawRect:"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "-repeats1"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
