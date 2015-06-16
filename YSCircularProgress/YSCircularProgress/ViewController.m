@@ -24,16 +24,17 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor redColor];
-    time = 0;
     circularView = [[YSCircularView alloc] init];
-    timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(repeats) userInfo:nil repeats:YES];
-    circularView.total = 5.0;
     circularView.lineWidth = 8;
     circularView.displayType = secondAndMinute;
     circularView.frame = CGRectMake(0, 40, 110, 210);
+    circularView.center = self.view.center;
     //    circularView.countUp = YES;
     [self.view addSubview:circularView];
 }
+
+
+
 // 简单思路，每次移除后再添加
 - (void)repeats1 {
     for (id subView in [self.view subviews]) {
@@ -66,6 +67,11 @@
     
 }
 
+- (IBAction)startAciton {
+    timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(repeats) userInfo:nil repeats:YES];
+    circularView.total = 5.0;
+    time = 0;
+}
 
 
 @end

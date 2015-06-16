@@ -16,6 +16,7 @@ IB_DESIGNABLE
 - (instancetype)init {
     self = [super init];
     if (self) {
+        IBInspectable
         // 设置圆角
         self.layer.cornerRadius = 2.0;
         self.layer.masksToBounds = YES;
