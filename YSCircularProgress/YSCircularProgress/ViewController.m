@@ -34,7 +34,7 @@
     //    circularView.countUp = YES;
     [self.view addSubview:circularView];
 }
-
+// 简单思路，每次移除后再添加
 - (void)repeats1 {
     for (id subView in [self.view subviews]) {
         if ([subView isKindOfClass:[YSCircularView class]]) {
@@ -54,7 +54,7 @@
 //    circularView.countUp = YES;
     [self.view addSubview:circularView1];
 }
-
+// 如果，时间改变，重绘视图
 - (void)repeats {
     
     circularView.second = (CGFloat)time++;

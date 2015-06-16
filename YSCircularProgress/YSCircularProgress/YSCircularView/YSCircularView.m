@@ -8,7 +8,10 @@
 
 #import "YSCircularView.h"
 
+IB_DESIGNABLE
+
 @implementation YSCircularView
+
 
 - (instancetype)init {
     self = [super init];
@@ -26,10 +29,19 @@
 
 -  (void)setSecond:(CGFloat)second
 {
+    
     if (_second != second) {
+        
+        for (UIView *label in self.subviews) {
+            if ([label isKindOfClass:[UILabel class]]) {
+                [label removeFromSuperview];
+            }
+        }
+        
         [self setNeedsDisplay];
         _second = second;
     }
+    
 }
 
 
