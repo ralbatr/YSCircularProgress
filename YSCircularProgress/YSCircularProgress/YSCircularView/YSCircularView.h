@@ -13,6 +13,12 @@ typedef enum : NSUInteger {
     secondAndMinute
 } DisplayType;
 
+@protocol YSCircularViewDelegate
+
+- (void)yscircularTimeRunOut;
+
+@end
+
 @interface YSCircularView : UIView
 
 @property (nonatomic,assign) CGFloat radius;
@@ -27,5 +33,9 @@ typedef enum : NSUInteger {
 @property (nonatomic,assign) BOOL countUp;
 // 显示格式 只是秒还是时分秒
 @property (nonatomic,assign) DisplayType displayType;
+@property (nonatomic,weak) id<YSCircularViewDelegate> circularViewDelegate;
+//@property (nonatomic,strong) NSTimer *timer;
+
+- (void)start;
 
 @end

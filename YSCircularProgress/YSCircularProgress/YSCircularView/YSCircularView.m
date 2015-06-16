@@ -8,6 +8,14 @@
 
 #import "YSCircularView.h"
 
+@interface YSCircularView()
+{
+    NSTimer *_timer;
+    BOOL _isStart;
+}
+
+@end
+
 IB_DESIGNABLE
 
 @implementation YSCircularView
@@ -21,11 +29,23 @@ IB_DESIGNABLE
         self.layer.cornerRadius = 2.0;
         self.layer.masksToBounds = YES;
         self.backgroundColor = [UIColor whiteColor];
-//        self.text = @"asdfa";
-//        [self setNeedsDisplay];
-//         [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(repeats) userInfo:nil repeats:YES];
+        _isStart = NO;
     }
     return self;
+}
+
+- (void)start {
+    _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(repeats) userInfo:nil repeats:YES];
+    _isStart = YES;
+}
+
+- (void)stop {
+    _isStart = NO;
+    [_timer invalidate];
+}
+
+- (void)repeats {
+    self.second++;
 }
 
 -  (void)setSecond:(CGFloat)second
@@ -128,6 +148,12 @@ IB_DESIGNABLE
             break;
     }
     [self addSubview:textLabel];
+    // 计时完成，调用代理
+    if (secondInt == 0 && _isStart == YES) {
+        [self stop];
+        self.second = 0.0;
+        [self.circularViewDelegate yscircularTimeRunOut];
+    }
 }
 
 @end
