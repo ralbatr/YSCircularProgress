@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum : NSUInteger {
+    second,
+    secondAndMinute
+} DisplayType;
+
 @interface YSCircularView : UIView
 
 @property (nonatomic,assign) CGFloat radius;
@@ -21,6 +26,6 @@
 // 计时 还是 倒计时
 @property (nonatomic,assign) BOOL countUp;
 // 显示格式 只是秒还是时分秒
-@property (nonatomic,assign) BOOL displayTypeIsSecond;
+@property (nonatomic,assign) DisplayType displayType;
 
 @end

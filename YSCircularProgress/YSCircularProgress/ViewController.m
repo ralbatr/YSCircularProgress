@@ -34,8 +34,9 @@
     }
     YSCircularView *circularView = [[YSCircularView alloc] init];
     circularView.second = (CGFloat)time++;
-    circularView.total = 10.0;
+    circularView.total = 65.0;
     circularView.lineWidth = 8;
+    circularView.displayType = secondAndMinute;
     circularView.frame = CGRectMake(0, 40, 110, 210);
     if (time-1 == circularView.total) {
         [timer invalidate];

@@ -93,7 +93,24 @@
     textLabel.frame = CGRectMake(self.radius/2, self.radius, self.radius/1, self.radius/2);
     textLabel.textAlignment = NSTextAlignmentCenter;
     textLabel.font = [UIFont systemFontOfSize:self.radius/5];
-    textLabel.text = [NSString stringWithFormat:@"%ld",self.countUp?(NSInteger)self.second:(NSInteger)(self.total - self.second)];
+    
+    // 秒数
+    NSInteger secondInt = self.countUp?(NSInteger)self.second:(NSInteger)(self.total - self.second);
+    
+    switch (self.displayType) {
+        case second:
+            textLabel.text = [NSString stringWithFormat:@"%ld秒",secondInt];
+            break;
+            
+        case secondAndMinute:
+            if (secondInt >= 60) {
+                textLabel.text = [NSString stringWithFormat:@"%ld分%ld秒",secondInt/60,secondInt%60];
+            } else {
+                textLabel.text = [NSString stringWithFormat:@"%ld秒",secondInt%60];
+            }
+            
+            break;
+    }
     [self addSubview:textLabel];
 }
 
