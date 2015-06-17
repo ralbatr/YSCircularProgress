@@ -26,9 +26,9 @@ IB_DESIGNABLE
     if (self) {
         IBInspectable
         // 设置圆角
-        self.layer.cornerRadius = 2.0;
-        self.layer.masksToBounds = YES;
-        self.backgroundColor = [UIColor whiteColor];
+//        self.layer.cornerRadius = 2.0;
+//        self.layer.masksToBounds = YES;
+        self.backgroundColor = [UIColor clearColor];
         _isStart = NO;
     }
     return self;
@@ -36,9 +36,11 @@ IB_DESIGNABLE
 
 - (void)start {
     if ([_timer isValid]) {
+        [_timer invalidate];
         _timer = nil;
     }
     _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(repeats) userInfo:nil repeats:YES];
+    self.second = 0;
     _isStart = YES;
 }
 
