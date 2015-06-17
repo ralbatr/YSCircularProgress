@@ -35,9 +35,20 @@ IB_DESIGNABLE
 }
 
 - (void)start {
+    if ([_timer isValid]) {
+        _timer = nil;
+    }
     _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(repeats) userInfo:nil repeats:YES];
     _isStart = YES;
 }
+
+- (void)suspend {
+    [_timer setFireDate:[NSDate distantFuture]];
+}
+- (void)continue; {
+    [_timer setFireDate:[NSDate date]];
+}
+
 
 - (void)stop {
     _isStart = NO;

@@ -36,6 +36,9 @@ typedef enum : NSUInteger {
 
 - (void)start;
 
+- (void)suspend; // 暂停
+- (void)continue; // 继续
+
 - (void)stop;
 
 @end

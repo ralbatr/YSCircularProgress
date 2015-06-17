@@ -40,6 +40,15 @@
     [circularView start];
     time = 0;
 }
+- (IBAction)stopAciton:(UIButton *)sender {
+    [circularView stop];
+}
+- (IBAction)suspend:(UIButton *)sender {
+    [circularView suspend];
+}
+- (IBAction)continue:(UIButton *)sender {
+    [circularView continue];
+}
 #pragma mark 计时完成后代理
 - (void)yscircularTimeRunOut {
     NSLog(@"yscircularTimeRunOut计时完成");
