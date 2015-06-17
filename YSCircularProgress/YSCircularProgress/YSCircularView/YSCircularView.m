@@ -81,7 +81,6 @@ IB_DESIGNABLE
 
 - (void)drawRect:(CGRect)rect {
     
-    
     //创建path
     UIBezierPath *path = [UIBezierPath bezierPath];
     // 计算radius
@@ -100,8 +99,9 @@ IB_DESIGNABLE
     // 画一个背景圆圈
     UIBezierPath *backgroundCircularPath = [UIBezierPath bezierPath];
     [backgroundCircularPath addArcWithCenter:centerPoint radius:(self.radius-path.lineWidth/2*3) startAngle:0.0 endAngle:2*M_PI clockwise:YES];
-    [[UIColor brownColor] setFill];
+    [[UIColor colorWithRed:82.0/255.0 green:197.0/255.0 blue:238.0/255.0 alpha:1.0] setFill];
     [backgroundCircularPath fill];
+    [backgroundCircularPath setLineWidth:0.0];
     [backgroundCircularPath stroke];
     
     // 添加圆到path ， clockwise 顺时针 逆时针
@@ -116,7 +116,7 @@ IB_DESIGNABLE
     
     //设置颜色（颜色设置也可以放在最上面，只要在绘制前都可以）
     if (!self.strokeColor) {
-        [[UIColor blueColor] setStroke];
+        [[UIColor whiteColor] setStroke];
     }
 //    if (!self.fillColor) {
 //        [[UIColor brownColor] setFill];
