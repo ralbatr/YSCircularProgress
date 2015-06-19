@@ -25,9 +25,6 @@ IB_DESIGNABLE
     self = [super init];
     if (self) {
         IBInspectable
-        // 设置圆角
-//        self.layer.cornerRadius = 2.0;
-//        self.layer.masksToBounds = YES;
         self.backgroundColor = [UIColor clearColor];
         _isStart = NO;
     }
@@ -50,7 +47,6 @@ IB_DESIGNABLE
 - (void)continue; {
     [_timer setFireDate:[NSDate date]];
 }
-
 
 - (void)stop {
     _isStart = NO;
@@ -77,7 +73,6 @@ IB_DESIGNABLE
     }
     
 }
-
 
 - (void)drawRect:(CGRect)rect {
     
